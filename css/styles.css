@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@300&display=swap');
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Antonio', sans-serif;
+}
+
+.logo {
+    width: 100%;
+    height: 70px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 8vh;
+    background-color: aqua;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.ham {
+    display: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.ham:hover {
+    cursor: pointer;
+}
+
+.ham span {
+    display: block;
+    background-color: black;
+    height: 4px;
+    width: 35px;
+    margin: 8px auto;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+.ham span:nth-child(2) {
+    height: 4px;
+}
+
+.enlaces-menu {
+    display: flex;
+    padding: 0;
+}
+
+.enlaces-menu li {
+    margin: 5px;
+    padding: 5px 30px;
+    list-style: none;
+    transition: all 0.3s ease-in;
+    border-radius: 8px;
+}
+
+.enlaces-menu li a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: black;
+}
+
+.enlaces-menu li:hover {
+    background-color: violet;
+    cursor: pointer;
+}
+
+/* moviles */
+
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+    .logo {
+        padding-left: 25px;
+    }
+    .ham {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        /* padding: 25px 0; */
+    }
+    .enlaces-menu {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 250px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: none;
+        opacity: 0;
+        z-index: 99;
+    }
+    .enlaces-menu li {
+        text-align: center;
+    }
+}
+
+@keyframes menuFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.enlaces-menu.activado {
+    display: flex;
+    animation: menuFade 400ms ease-in-out both;
+}
+
+.br-1.animado {
+    transform: rotate(-45deg) translate(-10px, 7px);
+}
+
+.br-2.animado {
+    opacity: 0;
+}
+
+.br-3.animado {
+    transform: rotate(45deg)translate(-10px, -7px);
+}
